@@ -10,7 +10,7 @@ Makefile Tutorial for the BTM
 **How?:**
  * have source files and target files
  * write conversion rules (that use your scripts)
- * run your entire workflow just my typing `make`
+ * run your entire workflow just by typing `make`
  * have no additional work when the raw data changes
 
 
@@ -25,7 +25,7 @@ all: report.pdf
 # example of an explicit build rule; the syntax is:
 # target: prerequesites
 #     shell commands (line needs to start with a TAB)
-report.pdf: report.tex background.png interests_comp.png interests_wetlab.png correlations.png
+report.pdf: report.tex background.png interests_comp.png interests_wetlab.png correlations. png
     pdflatex report.tex report.pdf
     rm -f report.log report.aux
 
