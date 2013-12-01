@@ -5,13 +5,13 @@ PLOTS = $(SCRIPTS:plot_%.py=%.png)
 all: report.pdf
 
 %.pdf: %.tex $(PLOTS)
-	    pdflatex $< $@
-		    rm -f $*.log $*.aux
+	pdflatex $< $@
+	rm -f $*.log $*.aux
 
 %.png: plot_%.py $(SOURCE) $(SCRIPTS)
-	    python2 $< $@
-		    mogrify -resize 20% $@
+	python2 $< $@
+	mogrify -resize 20% $@
 
 clean:
-	    rm -f *.png *.pyc *.pdf
+	rm -f *.png *.pyc *.pdf
 
