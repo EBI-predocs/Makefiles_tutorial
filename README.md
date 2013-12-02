@@ -31,7 +31,7 @@ report.pdf: report.tex background.png interests_comp.png interests_wetlab.png co
 
 # another explicit build rule; this time, it uses a python script to produce a figure
 background.png: plot_background.py Form_Responses.csv index.txt
-    python2 plot_background.py background.png
+    python plot_background.py background.png
     mogrify -resize 20% background.png
 
 # now, write rules to create the other .pngs with the plotting scripts
@@ -92,19 +92,19 @@ report.pdf: report.tex $(PLOTS)
     rm -f $*.log $*.aux
 
 background.png: plot_background.py $(SOURCE) $(SCRIPTS)
-    python2 $< $@
+    python $< $@
     mogrify -resize 20% $@
 
 interests_comp.png: plot_interests_comp.py $(SOURCE) $(SCRIPTS)
-    python2 $< $@
+    python $< $@
     mogrify -resize 20% $@
 
 interests_wetlab.png: plot_interests_wetlab.py $(SOURCE) $(SCRIPTS)
-    python2 $< $@
+    python $< $@
     mogrify -resize 20% $@
 
 correlations.png: plot_correlations.py $(SOURCE) $(SCRIPTS)
-    python2 $< $@
+    python $< $@
     mogrify -resize 20% $@
 
 clean:
@@ -160,7 +160,7 @@ all: report.pdf
     rm -f $*.log $*.aux
 
 %.png: plot_%.py $(SOURCE) $(SCRIPTS)
-    python2 $< $@
+    python $< $@
     mogrify -resize 20% $@
 
 clean:

@@ -13,7 +13,7 @@ report.pdf: report.tex background.png interests_comp.png interests_wetlab.png co
 
 # another explicit build rule; this time, it uses a python script to produce a figure
 background.png: plot_background.py Form_Responses.csv index.txt
-	python2 plot_background.py background.png
+	python plot_background.py background.png
 	mogrify -resize 20% background.png
 # Q: why do we list the script and the data as prerequesites?
 
@@ -27,4 +27,5 @@ background.png: plot_background.py Form_Responses.csv index.txt
 # to e.g. commit only the source files to VCS
 clean:
 	rm -f *.png *.pyc *.pdf
+	rm -r __pycache__
 
