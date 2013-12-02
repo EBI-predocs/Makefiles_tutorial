@@ -9,9 +9,10 @@ all: report.pdf
 	rm -f $*.log $*.aux
 
 %.png: plot_%.py $(SOURCE) $(SCRIPTS)
-	python2 $< $@
+	python $< $@
 	mogrify -resize 20% $@
 
 clean:
 	rm -f *.png *.pyc *.pdf
+	rm -r __pycache__
 

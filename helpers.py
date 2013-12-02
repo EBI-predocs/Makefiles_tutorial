@@ -8,7 +8,7 @@ from scipy.spatial.distance import pdist
 
 def readSurvey(fname, findex):
     results = parsers.read_csv(fname)
-    results.columns = np.loadtxt(findex, dtype='str')
+    results.columns = np.genfromtxt(findex, dtype='str')
 
     results['Computer_time'] = results['Computer_time'].astype('int')
     lookup = [ ("(5) more",5), ("-4",4), ("-3",3), ("-2",2), ("(1) less",1) ]
