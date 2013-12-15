@@ -27,5 +27,5 @@ background.png: plot_background.py Form_Responses.csv index.txt
 # to e.g. commit only the source files to VCS
 clean:
 	rm -f *.png *.pyc *.pdf
-	rm -r __pycache__
+	rm -rf __pycache__
 
