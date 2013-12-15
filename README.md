@@ -1,17 +1,19 @@
 Makefile Tutorial for the BTM
 =============================
 
-**Why?:**
- * lots of scripts in your directory (as with Paul's)
- * describe *how* to call scripts
- * common interface to rerun your analysis
- * works with all scripts that can be called from the command-line (not only R)
+### Why?
 
-**How?:**
- * have source files and target files
- * write conversion rules (that use your scripts)
- * run your entire workflow just by typing `make`
- * have no additional work when the raw data changes
+ * Lots of scripts in your directories
+ * Describe *how* to call scripts (also for cluster computing)
+ * Common interface to rerun your analysis
+ * Works with all scripts that can be called from the command-line (not only R)
+
+### How?
+
+ * Have source files and target files
+ * Write conversion rules (that use your scripts)
+ * Run your entire workflow just by typing `make`
+ * Have no additional work when the input data changes
 
 
 Getting started: targets and prerequesites
@@ -46,15 +48,18 @@ clean:
     rm -f *.png *.pyc *.pdf
 ```
 
-**TODO:** write conversion rules to generate *.png* files from the other plotting scripts
+**TODO:** write conversion rules to generate *.png* files from the other plotting scripts (remember that shell commands need to start with a TAB)
+
+ * plot_interests_wetlab.py &#8594; interests_wetlab.png
+ * plot_interests_comp.py &#8594; interests_comp.png
+ * plot_correlations.py &#8594; correlations.png
 
 When you have added the missing targets, your *Makefile* should run. Therefore, you can type `make` in a terminal and the default target (`all` in our case) is executed. If there is a prerequesite that is not available for `all` or outdated it is built before the target, and so on.
 
 **Q:** for *background.png*, why do we list the script and the data as prerequesites?
 
 
-Automatic and user-defined variables
-------------------------------------
+### Automatic and user-defined variables
 
 GNU make defines some variables automatically, like `$(MAKE)` for the make tool used or `$(HOME)` for the user home directory.
 
@@ -75,8 +80,7 @@ to refer to the source files, instead of having to reference them individually e
 **TODO:** Add both make- and self-defined variables to reduce the redundancy in the Makefile.
 
 
-Implicit conversion rules
--------------------------
+### Implicit conversion rules
 
 Now that we have gotten rid of some redundancy and your *Makefile* should read approximately like this:
 
@@ -125,8 +129,7 @@ The `%` is the magic character here. Your `all` target already knows that it nee
 **TODO:** Replace the 4 plotting rules by 1 implicit conversion rule.
 
 
-File name matching and conversions
-----------------------------------
+### File name matching and conversions
 
 If you like to get all file names in your current directory that match a specific pattern, you can use the `wildcard` macro:
 
@@ -167,5 +170,9 @@ clean:
     rm -f *.png *.pyc *.pdf
 ```
 
-Follow-up: eg. software carpentry: http://software-carpentry.org/v4/make/index.html
+Follow up
+---------
+
+ * Software carpentry: http://software-carpentry.org/v4/make/index.html
+ * The GNU Make manual: http://www.gnu.org/software/make/manual/make.html
 
