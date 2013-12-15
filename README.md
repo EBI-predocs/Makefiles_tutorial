@@ -1,5 +1,5 @@
-Makefile Tutorial for the BTM
-=============================
+Makefile Tutorial
+=================
 
 ### Why?
 
@@ -14,6 +14,14 @@ Makefile Tutorial for the BTM
  * Write conversion rules (that use your scripts)
  * Run your entire workflow just by typing `make`
  * Have no additional work when the input data changes
+
+### Prerequesites
+
+You will need GNU make, pdflatex and Python incl. [pandas](http://pandas.pydata.org/) 
+and [matplotlib](http://matplotlib.org/). Apart from the Python libraries, everything
+should be installed on a Linux system.
+
+On Mac, you will need the [command line tools](http://stackoverflow.com/questions/9329243/xcode-4-4-and-later-install-command-line-tools) of XCode.
 
 
 Getting started: targets and prerequesites
