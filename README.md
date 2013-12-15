@@ -59,7 +59,8 @@ When you have added the missing targets, your *Makefile* should run. Therefore, 
 **Q:** for *background.png*, why do we list the script and the data as prerequesites?
 
 
-### Automatic and user-defined variables
+Automatic and user-defined variables
+------------------------------------
 
 GNU make defines some variables automatically, like `$(MAKE)` for the make tool used or `$(HOME)` for the user home directory.
 
@@ -80,7 +81,8 @@ to refer to the source files, instead of having to reference them individually e
 **TODO:** Add both make- and self-defined variables to reduce the redundancy in the Makefile.
 
 
-### Implicit conversion rules
+Implicit conversion rules
+-------------------------
 
 Now that we have gotten rid of some redundancy and your *Makefile* should read approximately like this:
 
@@ -129,7 +131,8 @@ The `%` is the magic character here. Your `all` target already knows that it nee
 **TODO:** Replace the 4 plotting rules by 1 implicit conversion rule.
 
 
-### File name matching and conversions
+File name matching and conversions
+----------------------------------
 
 If you like to get all file names in your current directory that match a specific pattern, you can use the `wildcard` macro:
 
@@ -173,6 +176,6 @@ clean:
 Follow up
 ---------
 
- * Software carpentry: http://software-carpentry.org/v4/make/index.html
+ * Detailed tutorial at Software carpentry: http://software-carpentry.org/v4/make/index.html
  * The GNU Make manual: http://www.gnu.org/software/make/manual/make.html
 
