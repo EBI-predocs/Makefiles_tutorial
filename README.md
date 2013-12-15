@@ -1,17 +1,27 @@
-Makefile Tutorial for the BTM
-=============================
+Makefile Tutorial
+=================
 
-**Why?:**
- * lots of scripts in your directory (as with Paul's)
- * describe *how* to call scripts
- * common interface to rerun your analysis
- * works with all scripts that can be called from the command-line (not only R)
+### Why?
 
-**How?:**
- * have source files and target files
- * write conversion rules (that use your scripts)
- * run your entire workflow just by typing `make`
- * have no additional work when the raw data changes
+ * Lots of scripts in your directories
+ * Describe *how* to call scripts (also for cluster computing)
+ * Common interface to rerun your analysis
+ * Works with all scripts that can be called from the command-line (not only R)
+
+### How?
+
+ * Have source files and target files
+ * Write conversion rules (that use your scripts)
+ * Run your entire workflow just by typing `make`
+ * Have no additional work when the input data changes
+
+### Prerequesites
+
+You will need GNU make, pdflatex and Python incl. [pandas](http://pandas.pydata.org/) 
+and [matplotlib](http://matplotlib.org/). Apart from the Python libraries, everything
+should be installed on a Linux system.
+
+On Mac, you will need the [command line tools](http://stackoverflow.com/questions/9329243/xcode-4-4-and-later-install-command-line-tools) of XCode.
 
 
 Getting started: targets and prerequesites
@@ -46,7 +56,11 @@ clean:
     rm -f *.png *.pyc *.pdf
 ```
 
-**TODO:** write conversion rules to generate *.png* files from the other plotting scripts
+**TODO:** write conversion rules to generate *.png* files from the other plotting scripts (remember that shell commands need to start with a TAB)
+
+ * plot_interests_wetlab.py &#8594; interests_wetlab.png
+ * plot_interests_comp.py &#8594; interests_comp.png
+ * plot_correlations.py &#8594; correlations.png
 
 When you have added the missing targets, your *Makefile* should run. Therefore, you can type `make` in a terminal and the default target (`all` in our case) is executed. If there is a prerequesite that is not available for `all` or outdated it is built before the target, and so on.
 
@@ -167,5 +181,9 @@ clean:
     rm -f *.png *.pyc *.pdf
 ```
 
-Follow-up: eg. software carpentry: http://software-carpentry.org/v4/make/index.html
+Follow up
+---------
+
+ * Detailed tutorial at Software carpentry: http://software-carpentry.org/v4/make/index.html
+ * The GNU Make manual: http://www.gnu.org/software/make/manual/make.html
 

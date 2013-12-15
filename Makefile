@@ -14,5 +14,5 @@ all: report.pdf
 
 clean:
 	rm -f *.png *.pyc *.pdf
-	rm -r __pycache__
+	rm -rf __pycache__
 
