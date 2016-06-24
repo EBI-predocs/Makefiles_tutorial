@@ -173,7 +173,7 @@ all: report.pdf
     pdflatex $< $@
     rm -f $*.log $*.aux
 
-%.png: plot_%.py $(SOURCE) $(SCRIPTS)
+%.png: plot_%.py $(SOURCE)
     python $< $@
     mogrify -resize 20% $@
 
